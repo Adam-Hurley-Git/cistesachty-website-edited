@@ -1,4 +1,4 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
+// @lovable.dev/vite-tanstack-config already includes the following -- do NOT add them manually
 // or the app will break with duplicate plugins:
 //   - tanstackStart, viteReact, tailwindcss, tsConfigPaths, nitro (build-only using cloudflare as a default target),
 //     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
@@ -11,5 +11,13 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+  },
+  // Nitro's deploy plugin only auto-runs inside a Lovable sandbox. On a normal
+  // CI build (like Vercel's) it is skipped unless explicitly enabled here,
+  // which meant Vercel was building a client-only bundle with no server
+  // functions, causing every route to 404. Enabling it with the vercel
+  // preset makes the build produce the serverless functions the site needs.
+  nitro: {
+    preset: "vercel",
   },
 });
