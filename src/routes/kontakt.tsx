@@ -1,17 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin } from "lucide-react";
-
-import { homeFaq, towns } from "@/content/site";
+import { homeFaq } from "@/content/site";
 import { Accent, ContactPanel, FaqSection, SectionIntro, SiteShell } from "@/components/site-shell";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
     meta: [
-      { title: "Kontakt | Čisté šachty Hodonín" },
+      { title: "Kontakt | Čisté šachty" },
       {
         name: "description",
         content:
-          "Kontaktujte Čisté šachty. Bezplatná kontrola vzduchových šachet pro SVJ, bytová družstva a správce nemovitostí v Hodoníně a okolí.",
+          "Kontaktujte Čisté šachty. Bezplatná kontrola odvětrávacích šachet pro SVJ, bytová družstva a správce nemovitostí po celé České republice.",
       },
     ],
   }),
@@ -30,22 +28,11 @@ function ContactPage() {
             eyebrow="Kde působíme"
             title={
               <>
-                Hodonín a okolí —<Accent> přijedeme za vámi.</Accent>
+                Z Břeclavského regionu —<Accent> přijedeme za vámi po celé ČR.</Accent>
               </>
             }
-            body="Nejčastěji obsluhujeme tato města a jejich okolí. Pokud vaše lokalita v seznamu není, napište nám i tak — rádi se domluvíme."
+            body="Jsme z Břeclavského regionu, ale zakázky pro bytové domy realizujeme po celé České republice. Napište nám lokalitu a základní informace o domě."
           />
-          <div className="mt-10 flex flex-wrap gap-3">
-            {towns.map((town) => (
-              <span
-                key={town}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium shadow-[var(--shadow-soft)]"
-              >
-                <MapPin className="h-4 w-4 text-primary" strokeWidth={1.8} />
-                {town}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
