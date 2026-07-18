@@ -1098,7 +1098,6 @@ function Contact() {
             <Field label="E-mail" type="email" placeholder="vas@email.cz" />
             <Field label="Město / lokalita" placeholder="Břeclav / vaše lokalita" />
             <Field label="Typ objektu" placeholder="SVJ / BD / správce" />
-            <Field label="Název SVJ / správce" placeholder="Název subjektu" />
             <Field label="Adresa domu" placeholder="Ulice, číslo domu" className="sm:col-span-2" />
           </div>
           <label className="mt-4 block">
